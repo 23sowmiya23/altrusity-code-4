@@ -1,0 +1,49 @@
+
+import java.util.*;
+
+public class CountOddBalloons
+{
+
+    public static void main(String[] args) 
+    {
+        
+        Scanner input = new Scanner(System.in);
+        
+        
+      
+        int numberOfBalloons = input.nextInt();
+        
+        input.nextLine(); 
+        
+        
+       
+        Map<Character, Integer> balloonCount = new LinkedHashMap<>();
+        
+        
+        for (int i = 0; i < numberOfBalloons; i++)
+        {
+            char balloonColor = input.nextLine().charAt(0);
+            
+            balloonCount.put(balloonColor, balloonCount.getOrDefault(balloonColor, 0) + 1);
+            
+            
+        }
+        
+        
+        for (char color : balloonCount.keySet())
+        {
+            
+            if (balloonCount.get(color) % 2 != 0)
+            {
+                
+                System.out.println(color);
+                
+                return; 
+                
+            }
+        }
+        
+        
+        System.out.println("All colors are even");
+    }
+}
